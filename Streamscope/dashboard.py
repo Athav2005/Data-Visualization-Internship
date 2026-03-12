@@ -8,6 +8,27 @@ warnings.filterwarnings("ignore")
 st.title("Netflix Content Analysis Dashboard")
 
 df = pd.read_csv("Streamscope/netflix_cleaned_v2.csv")
+st.title("📺 Netflix Data Dashboard")
+
+total_titles = len(df)
+total_movies = len(df[df['type'] == 'Movie'])
+total_shows = len(df[df['type'] == 'TV Show'])
+
+col1, col2, col3 = st.columns(3)
+
+col1.metric("Total Titles", total_titles)
+col2.metric("Movies", total_movies)
+col3.metric("TV Shows", total_shows)
+
+st.sidebar.header("Filters")
+
+content_type = st.sidebar.selectbox(
+    "Select Content Type",
+    ["All", "Movie", "TV Show"]
+)
+
+if content_type != "All":
+    df = df[df["type"] == content_type]
 
 st.write("Dataset Shape:", df.shape)
 st.dataframe(df.head())
