@@ -1,5 +1,31 @@
-venv/
+# Python
 __pycache__/
 *.pyc
-*.csv
-.ipynb_checkpoints/ 
+*.pyo
+*.pyd
+
+# Virtual Environment
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Streamlit
+.streamlit/
+
+# Logs
+*.log
+
+# Data files (optional — keep if dataset is large)
+# *.csv
+
+# Temporary files
+*.tmp
